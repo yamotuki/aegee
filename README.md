@@ -1,0 +1,4 @@
+初めてのlaravelです。
+SemanticUIやLaravel,Dockerを使って遊びための場所。
+Youtube動画引用して吹き替え的なことができる遊びサイトを作っていきたい気持ち。
+
