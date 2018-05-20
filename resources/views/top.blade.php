@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <!-- Styles -->
     　　
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
     <style>
         html, body {
             background-color: #fff;
@@ -27,6 +29,7 @@
             transition: .3s;
             background-color: #00bfa5;
         }
+
         footer {
             top: 5px;
             left: 5px;
@@ -45,6 +48,25 @@
 
 </nav>
 <main>
+    <div id="eyes" style="overflow-x: hidden; overflow-y: hidden; position: absolute;">
+        test
+        <script type="text/javascript">
+            $(function () {
+                $('html').mousemove(function (e) {
+                    let moved_obj = $('#eyes');
+                    moved_obj.stop();//前のキューのアニメーションをストップする。
+                    moved_obj.animate({
+                        top: e.pageY,
+                        left: e.pageX,
+                    }, {
+                        duration: 1,
+                    },
+                        'easingInSine'
+                    );
+                });
+            });
+        </script>
+    </div>
     <h1>top page </h1>
     <?php $contents = [1, 2, 3]; ?>
     @foreach ($contents as $content)
