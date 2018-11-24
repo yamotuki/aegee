@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <title>スポーツ観戦行くぜ！</title>
 </head>
@@ -13,7 +14,7 @@
 </header>
 <main>
     <h1>{{ $year }} 年 {{ $month }} 月のカレンダー</h1>
-    <table class="table table-bordered">
+    <table class="calender-table" >
         <thead>
         <tr>
             @foreach (['日', '月', '火', '水', '木', '金', '土'] as $dayOfWeek)
@@ -26,17 +27,15 @@
         @foreach ($dates as $date)
             {{-- 日曜始まり--}}
             @if ($date->dayOfWeek == 0)
-                <tr>
-            @endif
+                <tr>@endif
 
-            <td @if ($date->month != $currentMonth) style="color: gray"@endif>
-                {{ $date->day }}
-            </td>
+                    <td class="cell @if ($date->month != $currentMonth) sub-cell @endif ">
+                        {{ $date->day }}
+                    </td>
 
-            {{-- 土曜で折り返し --}}
-            @if ($date->dayOfWeek == 6)
-                </tr>
-            @endif
+                    {{-- 土曜で折り返し --}}
+                    @if ($date->dayOfWeek == 6)
+                </tr>@endif
         @endforeach
         </tbody>
     </table>
